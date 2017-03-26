@@ -549,7 +549,7 @@ lastIndex 语法 RegExpObject.lastIn">
 </tr>
 </tbody>
 </table>
-<p>replace 方法在本博客<a href="https://hamger.github.io/2017/03/17/replace-%E6%96%B9%E6%B3%95/#more" target="_blank" rel="external">replace()方法</a>一文中有更详细的解释。<br>split 方法在本博客<a href="https://hamger.github.io/2017/03/16/String%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/" target="_blank" rel="external">String对象方法</a>一文中有更详细的解释。</p>
+<p>replace 方法在本博客<a href="https://hamger.github.io/2017/03/17/replace-%E6%96%B9%E6%B3%95/#more">replace()方法</a>一文中有更详细的解释。<br>split 方法在本博客<a href="https://hamger.github.io/2017/03/16/String%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/">String对象方法</a>一文中有更详细的解释。</p>
 <h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>利用小括号将正则表达式分组，用 $1、$2… 代表每个组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="string">"2016-11-25"</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>,<span class="string">'$2\/$3\/$1'</span>)</div><div class="line"><span class="built_in">console</span>.log(date) <span class="comment">// 11/25/2016</span></div></pre></td></tr></table></figure></p>
 <h2 id="贪婪模式与非贪婪模式"><a href="#贪婪模式与非贪婪模式" class="headerlink" title="贪婪模式与非贪婪模式"></a>贪婪模式与非贪婪模式</h2><p>贪婪模式下会比非贪婪模式多匹配字符，使用<code>?</code>表明是非贪婪模式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="string">"12345678"</span>.replace(<span class="regexp">/\d&#123;3,6&#125;/g</span>,<span class="string">'X'</span>) <span class="comment">// 贪婪模式取6个数字</span></div><div class="line"><span class="built_in">console</span>.log(num) <span class="comment">//  "X78"</span></div><div class="line"><span class="keyword">var</span> num = <span class="string">"12345678"</span>.replace(<span class="regexp">/\d&#123;3,6&#125;?/g</span>,<span class="string">'X'</span>) <span class="comment">//非贪婪模式取3个数字</span></div><div class="line"><span class="built_in">console</span>.log(num) <span class="comment">// "XX78"</span></div></pre></td></tr></table></figure></p>
 
@@ -697,7 +697,7 @@ lastIndex 语法 RegExpObject.lastIn">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
