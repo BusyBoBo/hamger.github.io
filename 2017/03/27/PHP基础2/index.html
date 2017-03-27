@@ -87,25 +87,16 @@
 
 
 
-<meta name="description" content="PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。PHP 命名空间可以解决以下两类问题：
-
-用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。
-为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。">
+<meta name="description" content="函数PHP中的函数不支持重载。函数名、方法名、类名不区分大小写，但推荐使用与定义时相同的名字。任何的默认参数应该放在任何的非默认参数的 右侧 。自PHP5起，默认值可以通过引用传递。从函数返回一个引用，必须在函数声明和指派返回值给一个变量时都使用引用运算符 &amp;amp; ：12345678&amp;lt;?phpfunction &amp;amp; returns_reference ()&amp;#123;    ret">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP基础2">
 <meta property="og:url" content="https://hamger.github.io/2017/03/27/PHP基础2/index.html">
 <meta property="og:site_name" content="Hanger's Blog">
-<meta property="og:description" content="PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。PHP 命名空间可以解决以下两类问题：
-
-用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。
-为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。">
-<meta property="og:updated_time" content="2017-03-26T16:29:54.000Z">
+<meta property="og:description" content="函数PHP中的函数不支持重载。函数名、方法名、类名不区分大小写，但推荐使用与定义时相同的名字。任何的默认参数应该放在任何的非默认参数的 右侧 。自PHP5起，默认值可以通过引用传递。从函数返回一个引用，必须在函数声明和指派返回值给一个变量时都使用引用运算符 &amp;amp; ：12345678&amp;lt;?phpfunction &amp;amp; returns_reference ()&amp;#123;    ret">
+<meta property="og:updated_time" content="2017-03-27T06:40:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP基础2">
-<meta name="twitter:description" content="PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。PHP 命名空间可以解决以下两类问题：
-
-用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。
-为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。">
+<meta name="twitter:description" content="函数PHP中的函数不支持重载。函数名、方法名、类名不区分大小写，但推荐使用与定义时相同的名字。任何的默认参数应该放在任何的非默认参数的 右侧 。自PHP5起，默认值可以通过引用传递。从函数返回一个引用，必须在函数声明和指派返回值给一个变量时都使用引用运算符 &amp;amp; ：12345678&amp;lt;?phpfunction &amp;amp; returns_reference ()&amp;#123;    ret">
 
 
 
@@ -382,7 +373,9 @@
       
 
       
-        <p>PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。<br>PHP 命名空间可以解决以下两类问题：</p>
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>PHP中的函数不支持重载。<br>函数名、方法名、类名不区分大小写，但推荐使用与定义时相同的名字。<br>任何的默认参数应该放在任何的非默认参数的<strong> 右侧 </strong>。<br>自PHP5起，默认值可以通过引用传递。<br>从函数返回一个引用，必须在函数声明和指派返回值给一个变量时都使用引用运算符 &amp; ：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> &amp; <span class="title">returns_reference</span> <span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> $someref ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$newref =&amp; returns_reference ();</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h3><p>PHP 支持可变函数的概念。这意味着如果一个变量名后有圆括号，PHP 将寻找与变量的值同名的函数，并且尝试执行它。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">echo</span>  <span class="string">"In foo()&lt;br /&gt;\n"</span> ;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">bar</span> <span class="params">( $arg  =  <span class="string">''</span> )</span> </span>&#123;</div><div class="line">    <span class="keyword">echo</span>  <span class="string">"In bar(); argument was ' $arg '.&lt;br /&gt;\n"</span> ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$func  =  <span class="string">'foo'</span> ;</div><div class="line">$func ();         <span class="comment">// This calls foo()</span></div><div class="line"></div><div class="line">$func  =  <span class="string">'bar'</span> ;</div><div class="line">$func ( <span class="string">'test'</span> );   <span class="comment">// This calls bar()</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。<br>PHP 命名空间可以解决以下两类问题：</p>
 <ul>
 <li>用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。</li>
 <li>为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。</li>
@@ -503,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://olislpb6q.bkt.clouddn.com/header.jpg"
@@ -575,6 +577,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可变函数"><span class="nav-number">1.1.</span> <span class="nav-text">可变函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">2.</span> <span class="nav-text">命名空间</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
