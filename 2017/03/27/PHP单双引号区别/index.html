@@ -101,7 +101,7 @@
 
 双引号内部变量会解析,单引号则不解析。1234$abc = &apos;my name is Tom&apos;;echo $abc; //结果是:my name is Tomecho &apos;$abc&apos;; //结果是:$abcecho &quot;$abc&quot;; //结果是:my name is Tom
 建议 PHP 引号使用原则：">
-<meta property="og:updated_time" content="2017-03-27T15:34:30.000Z">
+<meta property="og:updated_time" content="2017-03-28T02:47:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP单双引号区别">
 <meta name="twitter:description" content="单引号内字段不进行解释，直接输出。
@@ -183,7 +183,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">simple and important</p>
+        <p class="site-subtitle">brief and important</p>
       
   </div>
 
@@ -392,9 +392,9 @@
 <p>双引号内部变量会解析,单引号则不解析。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$abc = <span class="string">'my name is Tom'</span>;</div><div class="line"><span class="keyword">echo</span> $abc; <span class="comment">//结果是:my name is Tom</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'$abc'</span>; <span class="comment">//结果是:$abc</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$abc"</span>; <span class="comment">//结果是:my name is Tom</span></div></pre></td></tr></table></figure></p>
 <p>建议 PHP 引号使用原则：</p>
 <ol>
-<li>纯字符串用单引号。</li>
-<li>包含变量时用双引号。</li>
-<li>包含特殊符号(如换行符\n)时用双引号。</li>
+<li>纯字符串最外层用单引号。</li>
+<li>包含变量时最外层用双引号。</li>
+<li>包含特殊符号(如换行符\n)时最外层用双引号。</li>
 </ol>
 
       
@@ -532,7 +532,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
