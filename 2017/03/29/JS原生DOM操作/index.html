@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="水平居中定宽水平居中给div设置一个宽度，然后添加margin:0 auto属性。1234div&amp;#123;    width:200px;    margin:0 auto;&amp;#125;
-不定宽水平居中设置 display:table ，这个样式会告知浏览器当前元素的宽度，采用最小的宽度，不是默认全宽。1234div &amp;#123;	display:table;	margin:0 auto;&amp;#1">
+<meta name="description" content="jQuery 用久了，原生JS操作 DOM 的方法就容易忘，在此好好归纳一下原生的常用方法。
+创建元素
+创建元素：document.createElement()
+
+1234var div = document.createElement(&quot;div&quot;);div.id = &quot;myDiv&quot;;div.className = &quot;div1&quot;;document.body.appendChild(div);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="div居中">
-<meta property="og:url" content="https://hamger.github.io/2017/03/09/div居中/index.html">
+<meta property="og:title" content="JS原生DOM操作">
+<meta property="og:url" content="https://hamger.github.io/2017/03/29/JS原生DOM操作/index.html">
 <meta property="og:site_name" content="Hanger's Blog">
-<meta property="og:description" content="水平居中定宽水平居中给div设置一个宽度，然后添加margin:0 auto属性。1234div&amp;#123;    width:200px;    margin:0 auto;&amp;#125;
-不定宽水平居中设置 display:table ，这个样式会告知浏览器当前元素的宽度，采用最小的宽度，不是默认全宽。1234div &amp;#123;	display:table;	margin:0 auto;&amp;#1">
-<meta property="og:updated_time" content="2017-03-18T10:28:27.000Z">
+<meta property="og:description" content="jQuery 用久了，原生JS操作 DOM 的方法就容易忘，在此好好归纳一下原生的常用方法。
+创建元素
+创建元素：document.createElement()
+
+1234var div = document.createElement(&quot;div&quot;);div.id = &quot;myDiv&quot;;div.className = &quot;div1&quot;;document.body.appendChild(div);">
+<meta property="og:updated_time" content="2017-03-30T06:00:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="div居中">
-<meta name="twitter:description" content="水平居中定宽水平居中给div设置一个宽度，然后添加margin:0 auto属性。1234div&amp;#123;    width:200px;    margin:0 auto;&amp;#125;
-不定宽水平居中设置 display:table ，这个样式会告知浏览器当前元素的宽度，采用最小的宽度，不是默认全宽。1234div &amp;#123;	display:table;	margin:0 auto;&amp;#1">
+<meta name="twitter:title" content="JS原生DOM操作">
+<meta name="twitter:description" content="jQuery 用久了，原生JS操作 DOM 的方法就容易忘，在此好好归纳一下原生的常用方法。
+创建元素
+创建元素：document.createElement()
+
+1234var div = document.createElement(&quot;div&quot;);div.id = &quot;myDiv&quot;;div.className = &quot;div1&quot;;document.body.appendChild(div);">
 
 
 
@@ -127,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://hamger.github.io/2017/03/09/div居中/"/>
+  <link rel="canonical" href="https://hamger.github.io/2017/03/29/JS原生DOM操作/"/>
 
 
 
 
 
-  <title> div居中 | Hanger's Blog </title>
+  <title> JS原生DOM操作 | Hanger's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/09/div居中/">
+    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/29/JS原生DOM操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hanger">
@@ -315,7 +324,7 @@
             
             
               
-                div居中
+                JS原生DOM操作
               
             
           </h1>
@@ -330,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T11:32:35+08:00">
-                2017-03-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T23:05:04+08:00">
+                2017-03-29
               </time>
             
 
@@ -349,8 +358,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/09/div居中/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/div居中/" itemprop="commentCount"></span>
+                <a href="/2017/03/29/JS原生DOM操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/29/JS原生DOM操作/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,13 +385,72 @@
       
 
       
-        <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="定宽水平居中"><a href="#定宽水平居中" class="headerlink" title="定宽水平居中"></a>定宽水平居中</h3><p>给div设置一个宽度，然后添加margin:0 auto属性。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="不定宽水平居中"><a href="#不定宽水平居中" class="headerlink" title="不定宽水平居中"></a>不定宽水平居中</h3><p>设置 display:table ，这个样式会告知浏览器当前元素的宽度，采用最小的宽度，不是默认全宽。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">	<span class="attribute">display</span>:table;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>jQuery 用久了，原生JS操作 DOM 的方法就容易忘，在此好好归纳一下原生的常用方法。</p>
+<h2 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h2><blockquote>
+<p>创建元素：document.createElement()</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line">div.id = <span class="string">"myDiv"</span>;</div><div class="line">div.className = <span class="string">"div1"</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(div);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>创建文本节点 ：document.createTextNode()</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.createTextNode(<span class="string">"我是文本节点"</span>);  </div><div class="line"><span class="built_in">document</span>.body.appendChild(node);</div></pre></td></tr></table></figure>
+<h2 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span> <span class="attr">name</span>=<span class="string">"nameone"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>父节点：parentNode</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> child2 = <span class="built_in">document</span>.getElementById(<span class="string">"div2"</span>);</div><div class="line"><span class="keyword">var</span> parent = child2.parentNode;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><h3 id="居中一"><a href="#居中一" class="headerlink" title="居中一"></a>居中一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin</span>: auto;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">background-color</span>: pink;   	<span class="comment">/* 方便看效果 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="居中二"><a href="#居中二" class="headerlink" title="居中二"></a>居中二</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;     <span class="comment">/* 相对定位或绝对定位均可 */</span></div><div class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin</span>: -<span class="number">150px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">250px</span>;      <span class="comment">/* 外边距为自身宽高的一半 */</span></div><div class="line">    <span class="attribute">background-color</span>: pink;   </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h3 id="居中三"><a href="#居中三" class="headerlink" title="居中三"></a>居中三</h3><p>未知容器的宽高，利用 <code>transform</code> 属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;     <span class="comment">/* 相对定位或绝对定位均可 */</span></div><div class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">    <span class="attribute">background-color</span>: pink;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="居中四"><a href="#居中四" class="headerlink" title="居中四"></a>居中四</h3><p>利用 flex 布局，实际使用时应考虑兼容性。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">align-items</span>: center;        <span class="comment">/* 垂直居中 */</span></div><div class="line">    <span class="attribute">justify-content</span>: center;    <span class="comment">/* 水平居中 */</span></div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background-color</span>: pink; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>子节点：children、childNodes</p>
+</blockquote>
+<p>children 只读属性，返回节点的子节点集合，不包括文本节点，只有元素节点，推荐使用。<br>childNodes 只读属性，返回节点的子节点集合，包括元素节点和文本节点(换行，空格也算)。 该集合为即时更新的集合（live collection），即对节点元素的任意修改都会立即反映到结果里。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> allChilds = parent.childNodes;</div><div class="line"><span class="built_in">console</span>.log(allChilds.length) <span class="comment">// 返回7，IE返回3  </span></div><div class="line"><span class="keyword">var</span> nodeAdd = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</div><div class="line"><span class="keyword">var</span> textAdd = <span class="built_in">document</span>.createTextNode(<span class="string">"这是添加的文本节点"</span>);</div><div class="line">nodeAdd.appendChild(textAdd);</div><div class="line">parent.appendChild(nodeAdd);</div><div class="line"><span class="built_in">console</span>.log(allChilds.length);<span class="comment">// 返回8，IE返回4</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>兄弟节点：nextSibling、previousSibling</p>
+</blockquote>
+<p>node.nextSibling || node.nextElementSibling 下一个兄弟节点<br>node.previousSibling || node.previousElementSibling 上一个兄弟节点<br>注意，前者包含文本节点和元素节点，后者只包含元素节点，后者IE9+支持</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> next = child2.nextSibling;</div><div class="line"><span class="keyword">var</span> previous = child2.previousSibling;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第一个或最后一个子节点：firstChild、lastChild</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> first = parent.firstChild; </div><div class="line"><span class="keyword">var</span> last = parent.lastChild;</div></pre></td></tr></table></figure>
+<h2 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h2><blockquote>
+<p>添加节点：appendChild()</p>
+</blockquote>
+<p>appendChild()用于向childNodes列表的末尾添加一个节点，并且返回这个新增的节点。<br>如果传入到appendChild()里的节点已经是文档的一部分了，那结果就是将节点从原来的位置转移到新位置，任何一个节点不能同时出现在文档中的多个位置。</p>
+<blockquote>
+<p>插入节点：insetBefore()</p>
+</blockquote>
+<p>insetBefore()可以将节点插入到某个特定的位置。这个方法接受两个参数：要插入的节点和作为参照的节点。<br>插入节点后，被插入的节点变成参照节点的前一个同胞节点，同时被方法返回。 如果参照节点是null，则与appendChild()执行相同的操作。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> returnNode = someNode.insetBefore(newNode, <span class="literal">null</span>);</div><div class="line"><span class="keyword">var</span> returnNode = someNode.insetBefore(newNode, someNode.firstChild);</div><div class="line"><span class="keyword">var</span> returnNode = someNode.insetBefore(newNode, someNode.lastChild);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>替换节点： replaceChild()</p>
+</blockquote>
+<p>replaceChild()接受两个参数：要插入的节点和要被替换的节点。被替换的节点将由这个方法返回并从文档中被移除，同时由要插入的节点占据其位置。</p>
+<blockquote>
+<p>删除节点：removeChild()</p>
+</blockquote>
+<p>该方法接受一个参数，即要移除的节点，同时该方法返回被移除的节点。只能是一个节点，不能是一组节点。</p>
+<blockquote>
+<p>克隆节点：cloneNode(true/false)</p>
+</blockquote>
+<p>返回节点的一个副本。参数表示是否采用深度克隆,如果为true,则该节点的所有后代节点也都会被克隆,如果为false,则只克隆该节点本身，文本、换行、空格等不会被复制。默认为true。<br>克隆一个元素节点会拷贝它所有的属性以及属性值,包括了属性上绑定的事件(比如onclick=”alert(1)”),但不会拷贝那些使用addEventListener()方法或者node.onclick = fn这种用JavaScript动态绑定的事件。<br>注意:为了防止一个文档中出现两个ID相同的元素,使用cloneNode()方法克隆的节点在需要时应该指定新ID值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cloneHtml = child2.cloneNode(<span class="literal">true</span>);</div><div class="line"><span class="built_in">document</span>.body.appendChild(cloneHtml);</div></pre></td></tr></table></figure></p>
+<h2 id="元素选择"><a href="#元素选择" class="headerlink" title="元素选择"></a>元素选择</h2><blockquote>
+<p>querySelector()、querySelectorAll() (IE8+)</p>
+</blockquote>
+<p>querySelector 返回相匹配的<strong> 第一个 </strong>Element节点。如果没有相匹配的，则返回null。<br>querySelectorAll 返回相匹配的<strong> 所有 </strong>Element节点列表，如果没有相匹配的，则返回一个空节点列表。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> special = <span class="built_in">document</span>.querySelectorAll( <span class="string">"p.warning, p.note"</span> );</div><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector( <span class="string">"#main, #basic, #exclamation"</span> );</div></pre></td></tr></table></figure></p>
+<p>执行上面的代码后，el包含了文档中元素的ID是main、basic<strong> 或 </strong>exclamation的<strong> 所有元素中的第一个元素 </strong>。</p>
+<blockquote>
+<p>getElementsBy系列</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> element1 = <span class="built_in">document</span>.getElementById(<span class="string">"div0"</span>);</div><div class="line"><span class="keyword">var</span> element2 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"div2"</span>);</div><div class="line"><span class="keyword">var</span> element3 = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>);</div><div class="line"><span class="keyword">var</span> element4 = <span class="built_in">document</span>.getElementsByName(<span class="string">"nameone"</span>);</div></pre></td></tr></table></figure>
+<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><blockquote>
+<p>Attribute系列</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">child2.setAttribute(<span class="string">"class"</span>, <span class="string">"new_class"</span>);</div><div class="line">   child2.removeAttribute(<span class="string">"class"</span>);</div><div class="line">   <span class="keyword">var</span> attr = child2.getAttribute(<span class="string">"class"</span>);</div><div class="line">   <span class="built_in">console</span>.log(attr); <span class="comment">// null</span></div><div class="line">   <span class="keyword">var</span> hasName = child2.hasAttribute(<span class="string">"name"</span>);</div><div class="line">   <span class="built_in">console</span>.log(hasName); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>自定义属性</p>
+</blockquote>
+<p>HTML5 中<code>data-*</code>可以给指定元素添加自定义的属性。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div4"</span> <span class="attr">data-aa</span>=<span class="string">"11"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>利用<code>div4.dataset</code>可以获得一个DOMStringMap，包含了元素的所有<code>data-*</code>。<br>使用<code>div4.dataset.aa</code>返回值为11。<br>通过设置<code>div4.dataset.bb = &quot;22&quot;</code>就可以添加一个新的自定义属性。<br>不兼容则使用getAttribute和setAttribute。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div4 = <span class="built_in">document</span>.getElementById(<span class="string">"div4"</span>);</div><div class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</div><div class="line"><span class="keyword">if</span> (div4.dataset) &#123;</div><div class="line">    a = div4.dataset.aa;</div><div class="line">    div4.dataset.bb = <span class="string">"22"</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123; </div><div class="line">    a = div4.getAttribute(<span class="string">"data-aa"</span>);</div><div class="line">    div4.setAttribute(<span class="string">"data-bb"</span>, <span class="string">"22"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -427,7 +495,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -440,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/07/常用markdown语法/" rel="next" title="常用markdown语法">
-                <i class="fa fa-chevron-left"></i> 常用markdown语法
+              <a href="/2017/03/29/页面跳转方式/" rel="next" title="页面跳转方式">
+                <i class="fa fa-chevron-left"></i> 页面跳转方式
               </a>
             
           </div>
@@ -449,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/09/伪类和伪元素/" rel="prev" title="伪类和伪元素">
-                伪类和伪元素 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -478,8 +542,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/09/div居中/"
-           data-title="div居中" data-url="https://hamger.github.io/2017/03/09/div居中/">
+      <div class="ds-thread" data-thread-key="2017/03/29/JS原生DOM操作/"
+           data-title="JS原生DOM操作" data-url="https://hamger.github.io/2017/03/29/JS原生DOM操作/">
       </div>
     
   </div>
@@ -594,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#水平居中"><span class="nav-number">1.</span> <span class="nav-text">水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定宽水平居中"><span class="nav-number">1.1.</span> <span class="nav-text">定宽水平居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不定宽水平居中"><span class="nav-number">1.2.</span> <span class="nav-text">不定宽水平居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">2.</span> <span class="nav-text">水平垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#居中一"><span class="nav-number">2.1.</span> <span class="nav-text">居中一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#居中二"><span class="nav-number">2.2.</span> <span class="nav-text">居中二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#居中三"><span class="nav-number">2.3.</span> <span class="nav-text">居中三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#居中四"><span class="nav-number">2.4.</span> <span class="nav-text">居中四</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建元素"><span class="nav-number">1.</span> <span class="nav-text">创建元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点关系"><span class="nav-number">2.</span> <span class="nav-text">节点关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点操作"><span class="nav-number">3.</span> <span class="nav-text">节点操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素选择"><span class="nav-number">4.</span> <span class="nav-text">元素选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性操作"><span class="nav-number">5.</span> <span class="nav-text">属性操作</span></a></li></ol></div>
             
 
           </div>
