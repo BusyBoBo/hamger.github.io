@@ -87,31 +87,25 @@
 
 
 
-<meta name="description" content="ECMAScript5为数组定义了5个迭代方法，每个方法都接受两个参数：每一项上运行的函数，运行该函数的作用域对象（可选）。
+<meta name="description" content="跨域是由浏览器的同源策略引起的，即不同源（协议,域名,端口中其中有一个不同）的js是不能读取对方的资源的。限制跨域是浏览器的行为，而不是JS的行为。要实现跨域请求，解决方法大致分为两类：
 
-every() 若数组每一项都符合函数要求，返回true，否则返回false
-some() 若数组任意一项符合函数要求，返回true，否则返回false
-filter() 对数组每一项运行函数，返回符合函数要求的项组成的数组
-map() 对数组每一项运行函数，返回每次函数">
+一类是Hack，比如通过 title , navigation 等对象传递信息，JSONP可以说是一个最优秀的Hack。
+另一类是HTML5支持，一个是 Access-Control-Allow-Origin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS数组迭代">
-<meta property="og:url" content="https://hamger.github.io/2017/03/01/JS数组迭代/index.html">
+<meta property="og:title" content="JS跨域请求">
+<meta property="og:url" content="https://hamger.github.io/2017/03/30/JS跨域请求/index.html">
 <meta property="og:site_name" content="Hanger's Blog">
-<meta property="og:description" content="ECMAScript5为数组定义了5个迭代方法，每个方法都接受两个参数：每一项上运行的函数，运行该函数的作用域对象（可选）。
+<meta property="og:description" content="跨域是由浏览器的同源策略引起的，即不同源（协议,域名,端口中其中有一个不同）的js是不能读取对方的资源的。限制跨域是浏览器的行为，而不是JS的行为。要实现跨域请求，解决方法大致分为两类：
 
-every() 若数组每一项都符合函数要求，返回true，否则返回false
-some() 若数组任意一项符合函数要求，返回true，否则返回false
-filter() 对数组每一项运行函数，返回符合函数要求的项组成的数组
-map() 对数组每一项运行函数，返回每次函数">
-<meta property="og:updated_time" content="2017-03-19T06:01:02.000Z">
+一类是Hack，比如通过 title , navigation 等对象传递信息，JSONP可以说是一个最优秀的Hack。
+另一类是HTML5支持，一个是 Access-Control-Allow-Origin">
+<meta property="og:updated_time" content="2017-03-31T02:17:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS数组迭代">
-<meta name="twitter:description" content="ECMAScript5为数组定义了5个迭代方法，每个方法都接受两个参数：每一项上运行的函数，运行该函数的作用域对象（可选）。
+<meta name="twitter:title" content="JS跨域请求">
+<meta name="twitter:description" content="跨域是由浏览器的同源策略引起的，即不同源（协议,域名,端口中其中有一个不同）的js是不能读取对方的资源的。限制跨域是浏览器的行为，而不是JS的行为。要实现跨域请求，解决方法大致分为两类：
 
-every() 若数组每一项都符合函数要求，返回true，否则返回false
-some() 若数组任意一项符合函数要求，返回true，否则返回false
-filter() 对数组每一项运行函数，返回符合函数要求的项组成的数组
-map() 对数组每一项运行函数，返回每次函数">
+一类是Hack，比如通过 title , navigation 等对象传递信息，JSONP可以说是一个最优秀的Hack。
+另一类是HTML5支持，一个是 Access-Control-Allow-Origin">
 
 
 
@@ -139,13 +133,13 @@ map() 对数组每一项运行函数，返回每次函数">
 
 
 
-  <link rel="canonical" href="https://hamger.github.io/2017/03/01/JS数组迭代/"/>
+  <link rel="canonical" href="https://hamger.github.io/2017/03/30/JS跨域请求/"/>
 
 
 
 
 
-  <title> JS数组迭代 | Hanger's Blog </title>
+  <title> JS跨域请求 | Hanger's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +300,7 @@ map() 对数组每一项运行函数，返回每次函数">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/01/JS数组迭代/">
+    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/30/JS跨域请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hanger">
@@ -327,7 +321,7 @@ map() 对数组每一项运行函数，返回每次函数">
             
             
               
-                JS数组迭代
+                JS跨域请求
               
             
           </h1>
@@ -342,8 +336,8 @@ map() 对数组每一项运行函数，返回每次函数">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T22:08:34+08:00">
-                2017-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-30T18:34:06+08:00">
+                2017-03-30
               </time>
             
 
@@ -361,8 +355,8 @@ map() 对数组每一项运行函数，返回每次函数">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/01/JS数组迭代/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/JS数组迭代/" itemprop="commentCount"></span>
+                <a href="/2017/03/30/JS跨域请求/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/30/JS跨域请求/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,16 +382,16 @@ map() 对数组每一项运行函数，返回每次函数">
       
 
       
-        <p>ECMAScript5为数组定义了5个迭代方法，每个方法都接受两个参数：每一项上运行的函数，运行该函数的作用域对象（可选）。</p>
+        <p>跨域是由浏览器的同源策略引起的，即不同源（协议,域名,端口中其中有一个不同）的js是不能读取对方的资源的。限制跨域是浏览器的行为，而不是JS的行为。要实现跨域请求，解决方法大致分为两类：</p>
 <ul>
-<li>every() 若数组每一项都符合函数要求，返回true，否则返回false</li>
-<li>some() 若数组任意一项符合函数要求，返回true，否则返回false</li>
-<li>filter() 对数组每一项运行函数，返回符合函数要求的项组成的数组</li>
-<li>map() 对数组每一项运行函数，返回每次函数结果组成的数</li>
-<li>forEach() 对数组每一项运行函数，无返回值</li>
+<li>一类是Hack，比如通过 title , navigation 等对象传递信息，JSONP可以说是一个最优秀的Hack。</li>
+<li>另一类是HTML5支持，一个是 <code>Access-Control-Allow-Origin</code> 响应头，一个是 window.postMessage 。</li>
 </ul>
-<a id="more"></a>
-<p>实践出真知，以下代码是很好的例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>     numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</div><div class="line"><span class="keyword">var</span> everyResult = numbers.every(<span class="function"><span class="keyword">function</span> (<span class="params">item,index,array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (item &gt; <span class="number">2</span>);</div><div class="line">&#125;)    </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(everyResult); <span class="comment">//false </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> someResult = numbers.some(<span class="function"><span class="keyword">function</span> (<span class="params">item,index,array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (item&gt;<span class="number">2</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(someResult); <span class="comment">//true </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> filterResult = numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item,index,array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (item &gt; <span class="number">2</span>);</div><div class="line">&#125;) </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(filterResult); <span class="comment">//[3,4,5,4,3]</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> mapResult = numbers.map(<span class="function"><span class="keyword">function</span> (<span class="params">item,index,array</span>) 	</span>&#123;</div><div class="line">    <span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(mapResult); <span class="comment">//[2,4,6,8,10,8,6,4,2]</span></div><div class="line"></div><div class="line">numbers.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item,index,array</span>) </span>&#123;</div><div class="line">     <span class="built_in">console</span>.log(item) <span class="comment">//依次输出数组的每一项</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h2><p>原理：相同主域名不同子域名下的页面，可以设置 document.domain 让它们同域。<br>限制：同域document提供的是页面间的互操作，需要载入iframe页面。</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>原理：<code>&lt;script&gt;</code>是可以跨域的，而且在跨域脚本中可以直接回调当前脚本的函数。<br>限制：需要创建一个DOM对象并且添加到DOM树，只能用于GET方法。<br>跨域URL返回的脚本不仅包含数据，还包含一个回调：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// URL: http://b.a.com/foo</span></div><div class="line"><span class="keyword">var</span> data = &#123;</div><div class="line">    <span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">    <span class="attr">bar</span>: <span class="string">'foo'</span></div><div class="line">&#125;;</div><div class="line">callback(data);</div></pre></td></tr></table></figure></p>
+<p>在主站 <a href="http://a.com" target="_blank" rel="external">http://a.com</a> 中，可以这样来跨域获取 <a href="http://b.a.com" target="_blank" rel="external">http://b.a.com</a> 的数据：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// URL: http://a.com/foo</span></div><div class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="comment">// 处理跨域请求得到的数据</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> script = $(<span class="string">'&lt;script&gt;'</span>, &#123;<span class="attr">src</span>: <span class="string">'http://b.a.com/bar'</span>&#125;);</div><div class="line">$(<span class="string">'body'</span>).append(script);</div></pre></td></tr></table></figure></p>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>原理：服务器设置 <code>Access-Control-Allow-Origin</code> HTTP响应头之后，浏览器将会允许跨域请求。<br>限制：浏览器需要支持HTML5， 可以支持POST，PUT等方法。<br>前面提到的跨域手段都是某种意义上的Hack， HTML5标准中提出的跨域资源共享（Cross Origin Resource Share，CORS）才是正道。 它支持其他的HTTP方法如PUT, POST等，可以从本质上解决跨域问题。</p>
+<h2 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h2><p>原理：HTML5允许窗口之间发送消息。<br>限制：浏览器需要支持HTML5，获取窗口句柄后才能相互通信。</p>
 
       
     </div>
@@ -455,8 +449,8 @@ map() 对数组每一项运行函数，返回每次函数">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/CSS3动画小demo/" rel="next" title="CSS3动画小demo">
-                <i class="fa fa-chevron-left"></i> CSS3动画小demo
+              <a href="/2017/03/29/JS原生DOM操作/" rel="next" title="JS原生DOM操作">
+                <i class="fa fa-chevron-left"></i> JS原生DOM操作
               </a>
             
           </div>
@@ -464,10 +458,6 @@ map() 对数组每一项运行函数，返回每次函数">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/02/BFC理解记录/" rel="prev" title="理解BFC">
-                理解BFC <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,8 +483,8 @@ map() 对数组每一项运行函数，返回每次函数">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/01/JS数组迭代/"
-           data-title="JS数组迭代" data-url="https://hamger.github.io/2017/03/01/JS数组迭代/">
+      <div class="ds-thread" data-thread-key="2017/03/30/JS跨域请求/"
+           data-title="JS跨域请求" data-url="https://hamger.github.io/2017/03/30/JS跨域请求/">
       </div>
     
   </div>
@@ -518,8 +508,17 @@ map() 对数组每一项运行函数，返回每次函数">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://olislpb6q.bkt.clouddn.com/header.jpg"
@@ -590,6 +589,22 @@ map() 对数组每一项运行函数，返回每次函数">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#document-domain"><span class="nav-number">1.</span> <span class="nav-text">document.domain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">2.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">3.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-postMessage"><span class="nav-number">4.</span> <span class="nav-text">window.postMessage</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
