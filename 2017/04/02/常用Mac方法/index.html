@@ -87,11 +87,12 @@
 
 
 
-<meta name="description" content="本博文记录自己用到过 Mac 命令行，会保持持续更新。
+<meta name="description" content="本博文记录自己用到过 Mac 命令行，会保持更新。
+关于man命令在命令行中输入 man command-name 会返回一个该条命令的使用指南，非常详细。使用指南往往很长，可以使用 ▲（上箭头）或 ▼（下箭头）来上下移动，使用空格键来翻页，输入/和关键字来搜索，按 Q 退出。
 目录操作
 
 
-指令
+命令
 描述
 用法 
 
@@ -104,37 +105,17 @@ mkdir dir1
 
 
 rmdir
-删除一个空目录
-rmdir dir1
-
-
-rm -R
-删除一个目录
-rm -R dir1
-
-
-mvdir
-移动/重命名一个目录
-mvdir dir1 dir2
-
-
-cd
-切换到指定目录
-cd dirPath
-
-
-ls
-显示目录内容
-ls">
+删除一个空目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用Mac方法">
 <meta property="og:url" content="https://hamger.github.io/2017/04/02/常用Mac方法/index.html">
 <meta property="og:site_name" content="Hanger's Blog">
-<meta property="og:description" content="本博文记录自己用到过 Mac 命令行，会保持持续更新。
+<meta property="og:description" content="本博文记录自己用到过 Mac 命令行，会保持更新。
+关于man命令在命令行中输入 man command-name 会返回一个该条命令的使用指南，非常详细。使用指南往往很长，可以使用 ▲（上箭头）或 ▼（下箭头）来上下移动，使用空格键来翻页，输入/和关键字来搜索，按 Q 退出。
 目录操作
 
 
-指令
+命令
 描述
 用法 
 
@@ -147,36 +128,16 @@ mkdir dir1
 
 
 rmdir
-删除一个空目录
-rmdir dir1
-
-
-rm -R
-删除一个目录
-rm -R dir1
-
-
-mvdir
-移动/重命名一个目录
-mvdir dir1 dir2
-
-
-cd
-切换到指定目录
-cd dirPath
-
-
-ls
-显示目录内容
-ls">
-<meta property="og:updated_time" content="2017-04-02T03:30:19.000Z">
+删除一个空目录">
+<meta property="og:updated_time" content="2017-04-02T09:34:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用Mac方法">
-<meta name="twitter:description" content="本博文记录自己用到过 Mac 命令行，会保持持续更新。
+<meta name="twitter:description" content="本博文记录自己用到过 Mac 命令行，会保持更新。
+关于man命令在命令行中输入 man command-name 会返回一个该条命令的使用指南，非常详细。使用指南往往很长，可以使用 ▲（上箭头）或 ▼（下箭头）来上下移动，使用空格键来翻页，输入/和关键字来搜索，按 Q 退出。
 目录操作
 
 
-指令
+命令
 描述
 用法 
 
@@ -189,28 +150,7 @@ mkdir dir1
 
 
 rmdir
-删除一个空目录
-rmdir dir1
-
-
-rm -R
-删除一个目录
-rm -R dir1
-
-
-mvdir
-移动/重命名一个目录
-mvdir dir1 dir2
-
-
-cd
-切换到指定目录
-cd dirPath
-
-
-ls
-显示目录内容
-ls">
+删除一个空目录">
 
 
 
@@ -487,11 +427,12 @@ ls">
       
 
       
-        <p>本博文记录自己用到过 Mac 命令行，会保持持续更新。</p>
+        <p>本博文记录自己用到过 Mac 命令行，会保持更新。</p>
+<h2 id="关于man命令"><a href="#关于man命令" class="headerlink" title="关于man命令"></a>关于man命令</h2><p>在命令行中输入 <code>man command-name</code> 会返回一个该条命令的使用指南，非常详细。<br>使用指南往往很长，可以使用 ▲（上箭头）或 ▼（下箭头）来上下移动，使用空格键来翻页，输入<code>/</code>和关键字来搜索，按 Q 退出。</p>
 <h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
 <thead>
 <tr>
-<th>指令</th>
+<th>命令</th>
 <th>描述</th>
 <th>用法 </th>
 </tr>
@@ -508,9 +449,9 @@ ls">
 <td>rmdir dir1</td>
 </tr>
 <tr>
-<td>rm -R</td>
+<td>rm -r</td>
 <td>删除一个目录</td>
-<td>rm -R dir1</td>
+<td>rm -r dir1</td>
 </tr>
 <tr>
 <td>mvdir</td>
@@ -525,7 +466,7 @@ ls">
 <tr>
 <td>ls</td>
 <td>显示目录内容</td>
-<td>ls (-a/-i/-l) (dir1)</td>
+<td>ls (dir1)</td>
 </tr>
 <tr>
 <td>pwd</td>
@@ -537,7 +478,7 @@ ls">
 <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table>
 <thead>
 <tr>
-<th>指令</th>
+<th>命令</th>
 <th>描述</th>
 <th>用法 </th>
 </tr>
@@ -570,7 +511,7 @@ ls">
 </tr>
 <tr>
 <td>rm</td>
-<td>删除文件或目录</td>
+<td>删除一个文件</td>
 <td>rm file1</td>
 </tr>
 <tr>
@@ -585,12 +526,128 @@ ls">
 </tr>
 <tr>
 <td>open</td>
-<td>打开文件</td>
+<td>用默认程序打开文件</td>
 <td>open fiel1</td>
+</tr>
+<tr>
+<td>nano</td>
+<td>默认编辑器打开文件</td>
+<td>nano fiel1</td>
+</tr>
+<tr>
+<td>vim</td>
+<td>用Vim编辑文件</td>
+<td>vim file1</td>
 </tr>
 </tbody>
 </table>
 <a id="more"></a>
+<h2 id="在Vim中的命令"><a href="#在Vim中的命令" class="headerlink" title="在Vim中的命令"></a>在Vim中的命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>在光标下一个字符处插入</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>将光标快速移动到文件首</td>
+</tr>
+<tr>
+<td>G</td>
+<td>将光标快速移动到文件尾</td>
+</tr>
+<tr>
+<td>0(零)</td>
+<td>将光标快速移动到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>将光标快速移动到行尾</td>
+</tr>
+<tr>
+<td>/内容</td>
+<td>查找内容，按n跳到下一项</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销，回到上一步操作</td>
+</tr>
+<tr>
+<td>:行号</td>
+<td>定位到指定行</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>未保存直接退出</td>
+</tr>
+<tr>
+<td>:wq 或 :x</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:wq! 或 :x!</td>
+<td>强制保存并退出</td>
+</tr>
+<tr>
+<td>:w!</td>
+<td>强制保存</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出</td>
+</tr>
+<tr>
+<td>:syntax on/off</td>
+<td>开启/关闭语法高亮</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+<th>用法 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kill</td>
+<td>终止进程</td>
+<td>kill -9 30142</td>
+</tr>
+<tr>
+<td>clear 或 ctrl+L</td>
+<td>清屏</td>
+<td>clear </td>
+</tr>
+<tr>
+<td>alias</td>
+<td>给某个命令定义别名</td>
+<td>alias del=rm -i</td>
+</tr>
+<tr>
+<td>unalias</td>
+<td>取消对某个别名的定义</td>
+<td>unalias del</td>
+</tr>
+<tr>
+<td>find</td>
+<td>查找</td>
+<td>find -name ‘*.html’</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -798,7 +855,7 @@ ls">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">2.</span> <span class="nav-text">文件操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于man命令"><span class="nav-number">1.</span> <span class="nav-text">关于man命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录操作"><span class="nav-number">2.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Vim中的命令"><span class="nav-number">4.</span> <span class="nav-text">在Vim中的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他操作"><span class="nav-number">5.</span> <span class="nav-text">其他操作</span></a></li></ol></div>
             
 
           </div>
