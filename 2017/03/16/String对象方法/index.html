@@ -97,7 +97,7 @@ substr()  语法string.substr(start,length)。如果start是负数，那么该�
 <meta property="og:description" content="讨论完Array对象的方法，再来讨论一下String对象的方法，两者拥有部分相似的方法：concat()、indexOf()、lastIndexOf()、slice()、valueOf()。这里不再赘述。
 提取字符串
 substr()  语法string.substr(start,length)。如果start是负数，那么该参数声明从字符串的尾部开始算起的位置。如果 length 为 0 或负数，">
-<meta property="og:updated_time" content="2017-03-18T10:31:21.000Z">
+<meta property="og:updated_time" content="2017-04-04T13:33:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String对象方法">
 <meta name="twitter:description" content="讨论完Array对象的方法，再来讨论一下String对象的方法，两者拥有部分相似的方法：concat()、indexOf()、lastIndexOf()、slice()、valueOf()。这里不再赘述。
@@ -409,7 +409,7 @@ substr()  语法string.substr(start,length)。如果start是负数，那么该�
 <p><code>split(&quot;&quot;)</code> 会将 stringObject 中的每个字符之间都分割。<br><code>split()</code> 会返回完整的字符串，即不做处理。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"How are you doing today?"</span>;</div><div class="line"><span class="keyword">var</span> n=str.split(<span class="string">" "</span>); <span class="comment">// 注意这里的分隔符是空格</span></div><div class="line"><span class="built_in">console</span>.log(n) <span class="comment">// ["How", "are", "you", "doing", "today?"]</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h2 id="去除空格"><a href="#去除空格" class="headerlink" title="去除空格"></a>去除空格</h2><ul>
-<li>trim() 去除字符串两边的空白</li>
+<li>trim() 去除字符串两边的空白，不改变原字符串。</li>
 </ul>
 <p>注意到该方法只能去除两边的空白，实际工作中我们可能还需要将多个空格合并为一个空格，需要自己拓展：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.ResetBlank = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  <span class="keyword">var</span> regEx = <span class="regexp">/\s+/g</span>; </div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.replace(regEx, <span class="string">' '</span>); </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h2 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h2><ul>
