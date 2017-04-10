@@ -94,7 +94,7 @@
 heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 
 
-字符串操作
+操作字符串
 
 
 方法
@@ -116,7 +116,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 
 
-字符串操作
+操作字符串
 
 
 方法
@@ -127,7 +127,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 
 .
 连接字符串">
-<meta property="og:updated_time" content="2017-04-09T04:00:40.000Z">
+<meta property="og:updated_time" content="2017-04-09T04:06:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP字符串操作">
 <meta name="twitter:description" content="定义字符串PHP中定义字符串有三种方式(其中单引号和双引号的区别请详见这里)：
@@ -137,7 +137,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 
 
-字符串操作
+操作字符串
 
 
 方法
@@ -431,7 +431,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 <li>heredoc语法结构<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$hello = <span class="string">&lt;&lt;&lt;TAG</span></div><div class="line">hello world</div><div class="line">TAG;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><table>
+<h2 id="操作字符串"><a href="#操作字符串" class="headerlink" title="操作字符串"></a>操作字符串</h2><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -486,7 +486,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
 </tbody>
 </table>
 <a id="more"></a>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$str = <span class="string">"what's your name?"</span>;</div><div class="line"><span class="keyword">echo</span> addslashes($str); <span class="comment">// what\'s your name?</span></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(<span class="string">'Hello'</span>, <span class="string">'World!'</span>);</div><div class="line">$result = implode(<span class="string">''</span>, $arr);</div><div class="line">print_r($result); <span class="comment">// Hello World!</span></div><div class="line"></div><div class="line">$result2 = explode(<span class="string">' '</span>, $result);</div><div class="line">print_r($result2); <span class="comment">// array('Hello','World')</span></div><div class="line"></div><div class="line">$str2 = <span class="string">'99.9'</span>;</div><div class="line">$result3 = sprintf(<span class="string">'%01.2f'</span>, $str2);</div><div class="line"><span class="keyword">echo</span> $result3; <span class="comment">// 99.90</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$str = <span class="string">"what's your name?"</span>;</div><div class="line"><span class="keyword">echo</span> addslashes($str); <span class="comment">// what\'s your name?</span></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(<span class="string">'Hello'</span>, <span class="string">'World!'</span>);</div><div class="line">$result = implode(<span class="string">' '</span>, $arr);</div><div class="line">print_r($result); <span class="comment">// Hello World!</span></div><div class="line"></div><div class="line">$result2 = explode(<span class="string">' '</span>, $result);</div><div class="line">print_r($result2); <span class="comment">// Array ( [0] =&gt; Hello [1] =&gt; World! )</span></div><div class="line"></div><div class="line">$str2 = <span class="string">'99.9'</span>;</div><div class="line">$result3 = sprintf(<span class="string">'%01.2f'</span>, $str2);</div><div class="line"><span class="keyword">echo</span> $result3; <span class="comment">// 99.90</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -694,7 +694,7 @@ heredoc语法结构123$hello = &amp;lt;&amp;lt;&amp;lt;TAGhello worldTAG;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义字符串"><span class="nav-number">1.</span> <span class="nav-text">定义字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串操作"><span class="nav-number">2.</span> <span class="nav-text">字符串操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义字符串"><span class="nav-number">1.</span> <span class="nav-text">定义字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作字符串"><span class="nav-number">2.</span> <span class="nav-text">操作字符串</span></a></li></ol></div>
             
 
           </div>
