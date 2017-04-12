@@ -915,7 +915,7 @@
       
         
           <h2 id="JS创建对象"><a href="#JS创建对象" class="headerlink" title="JS创建对象"></a>JS创建对象</h2><p>在JS中，主要有两种创建对象的方法, 分别是对象字面量以及调用构造函数<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对象字面量</span></div><div class="line"><span class="keyword">var</span> obj1 = &#123;&#125;</div><div class="line"> </div><div class="line"><span class="comment">//调用构造函数</span></div><div class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>()</div></pre></td></tr></table></figure></p>
-<h2 id="prototype-、constructor"><a href="#prototype-、constructor" class="headerlink" title="prototype 、constructor"></a>prototype 、constructor</h2><p><strong> 每个对象 </strong>默认会有一个protoype属性指向它的原型，<br><strong> 构造函数的原型 </strong>会有一个consctructor的属性指向构造函数本身，即<br><code>Person.prototype.constructor === Person</code><br>
+<h2 id="prototype-、constructor"><a href="#prototype-、constructor" class="headerlink" title="prototype 、constructor"></a>prototype 、constructor</h2><p><strong> 每个函数 </strong>默认会有一个<code>protoype</code>属性指向它的原型对象，<br>该原型对象会有一个<code>consctructor</code>的属性，该属性包含一个指针，指向<code>prototype</code>属性所在函数，即<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person.prototype.constructor === Person</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/07/JS原型/#more" rel="contents">
