@@ -292,6 +292,142 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/06/08/列表模板引擎进化之路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://olislpb6q.bkt.clouddn.com/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hanger's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/08/列表模板引擎进化之路/" itemprop="url">
+                  列表模板引擎进化之路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T07:31:43+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/08/列表模板引擎进化之路/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/08/列表模板引擎进化之路/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>平时的工作中，经常会遇到渲染列表的需求，比如下面的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tabelContent = <span class="string">''</span></div><div class="line">$.each(data, <span class="function"><span class="keyword">function</span>(<span class="params">index, obj</span>) </span>&#123;</div><div class="line">    tableContent += <span class="string">'&lt;tr&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th &gt;'</span> + obj.id + <span class="string">'&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th&gt;'</span> + obj.name + <span class="string">'&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th&gt;'</span> + obj.type + <span class="string">'&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th&gt;'</span> + obj.level + <span class="string">'&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;/tr&gt;'</span></div><div class="line">&#125;)</div><div class="line">$(<span class="string">'tbody'</span>).html(tabelContent)</div></pre></td></tr></table></figure></p>
+<p>向上面这样写一个字符串十分繁琐，而且不可复用。那么有什么办法可以解决这样的问题呢？<br>我们都知道js的replace()函数可以实现字符串的替换，replace()第二个参数可以为函数，在开启列表模板引擎进化之旅之前需要先理解<a href="https://hamger.github.io/2017/03/17/replace-%E6%96%B9%E6%B3%95/">replace方法</a>。<br>现在我要利用replace()的强大能力来解决上面这个问题。直接上最初的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine1</span>(<span class="params">tpl, obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = b.trim()</div><div class="line">        <span class="keyword">return</span> obj[b]</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> tpl = <span class="string">'&lt;tr&gt;'</span> +</div><div class="line">    <span class="string">'&lt;th &gt;id&lt;/th&gt;'</span> +</div><div class="line">    <span class="string">'&lt;th&gt;name&lt;/th&gt;'</span> +</div><div class="line">    <span class="string">'&lt;th&gt;type&lt;/th&gt;'</span> +</div><div class="line">    <span class="string">'&lt;th&gt;level&lt;/th&gt;'</span> +</div><div class="line">    <span class="string">'&lt;/tr&gt;'</span></div><div class="line"><span class="keyword">var</span> tabelContent = <span class="string">''</span></div><div class="line"> $.each(data, <span class="function"><span class="keyword">function</span>(<span class="params">index, obj</span>) </span>&#123;</div><div class="line">     tableContent += tplEngine1(tpl,obj)</div><div class="line"> &#125;)</div><div class="line">$(<span class="string">'tbody'</span>).html(tabelContent)</div></pre></td></tr></table></figure></p>
+<p>在控制台打印一下，你会得到同样的结果，是不是觉得这样的字符串简单多了呢。<br>但是上面这个版本的模板引擎还是最简单的、功能最弱的版本，随着需求的增加，我们需要不断改进它。</p>
+<h3 id="解决两层数据对象"><a href="#解决两层数据对象" class="headerlink" title="解决两层数据对象"></a>解决两层数据对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine2</span>(<span class="params">tpl, obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = b.trim()</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\./</span>.test(b)) &#123;</div><div class="line">            <span class="keyword">var</span> arr = b.split(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> obj[b]</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="解决得到的数据是数组"><a href="#解决得到的数据是数组" class="headerlink" title="解决得到的数据是数组"></a>解决得到的数据是数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine3</span>(<span class="params">tpl, obj, separator</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> separator = separator || <span class="string">','</span></div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = b.trim()</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\./</span>.test(b)) &#123;</div><div class="line">            <span class="keyword">var</span> arr = b.split(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]].join(separator)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (obj[b] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">return</span> obj[b].join(separator)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> obj[b]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="避免显示undefined"><a href="#避免显示undefined" class="headerlink" title="避免显示undefined"></a>避免显示undefined</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine4</span>(<span class="params">tpl, obj, fruitless, separator</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> fruitless = fruitless || <span class="string">''</span></div><div class="line">	<span class="keyword">var</span> separator = separator || <span class="string">','</span></div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = b.trim()</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\./</span>.test(b)) &#123;</div><div class="line">            <span class="keyword">var</span> arr = b.split(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]].length == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]].join(separator)</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]</div><div class="line">                <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]) &#123;&#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (obj[b] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (obj[b].length == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> obj[b].join(separator)</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (obj[b]) &#123;</div><div class="line">                    <span class="keyword">return</span> obj[b]</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="填充变量"><a href="#填充变量" class="headerlink" title="填充变量"></a>填充变量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine5</span>(<span class="params">tpl, obj, fruitless, separator</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> fruitless = fruitless || <span class="string">''</span></div><div class="line">    <span class="keyword">var</span> separator = separator || <span class="string">','</span></div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;@([^@&gt;]+)?@&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, $<span class="number">1</span></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $<span class="number">1</span> = $<span class="number">1.</span>trim()</div><div class="line">        <span class="keyword">return</span> <span class="built_in">eval</span>($<span class="number">1</span>)</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = b.trim()</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\./</span>.test(b)) &#123;</div><div class="line">            <span class="keyword">var</span> arr = b.split(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]].length == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]].join(separator)</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]</div><div class="line">                <span class="keyword">if</span> (obj[arr[<span class="number">0</span>]][arr[<span class="number">1</span>]]) &#123;&#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (obj[b] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (obj[b].length == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> obj[b].join(separator)</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (obj[b]) &#123;</div><div class="line">                    <span class="keyword">return</span> obj[b]</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> fruitless</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="添加过滤函数"><a href="#添加过滤函数" class="headerlink" title="添加过滤函数"></a>添加过滤函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tplEngine6</span>(<span class="params">tpl, data, separator</span>) </span>&#123;</div><div class="line">    <span class="comment">// 初始化参数</span></div><div class="line">    <span class="keyword">if</span> (!separator &amp;&amp; separator !== <span class="number">0</span>) &#123;</div><div class="line">        separator = <span class="string">','</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 输出函数</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">$<span class="number">1</span>, filter</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\./</span>.test($<span class="number">1</span>)) &#123;</div><div class="line">            <span class="keyword">var</span> arr2 = $<span class="number">1.</span>split(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">var</span> arr3 = data[arr2[<span class="number">0</span>]][arr2[<span class="number">1</span>]]</div><div class="line">            <span class="keyword">if</span> (arr3 <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (filter) &#123;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</div><div class="line">                        arr3[i] = filter(arr3[i])</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> arr3.join(separator)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (filter) &#123;</div><div class="line">                    arr3 = filter(arr3)</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> arr3</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">var</span> arr4 = data[$<span class="number">1</span>]</div><div class="line">            <span class="keyword">if</span> (arr4 <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (filter) &#123;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr4.length; i++) &#123;</div><div class="line">                        arr4[i] = filter(arr4[i])</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> arr4.join(separator)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (filter) &#123;</div><div class="line">                    arr4 = filter(arr4)</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> arr4</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 变量填充 </span></div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;@([^@&gt;]+)?@&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, $<span class="number">1</span></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $<span class="number">1</span> = $<span class="number">1.</span>trim()</div><div class="line">    	<span class="keyword">if</span> (<span class="regexp">/\|/</span>.test($<span class="number">1</span>)) &#123;</div><div class="line">        	<span class="keyword">var</span> arr = $<span class="number">1.</span>split(<span class="string">'|'</span>)</div><div class="line">        	<span class="keyword">var</span> filter = <span class="built_in">eval</span>(arr[<span class="number">1</span>])</div><div class="line">        	<span class="keyword">var</span> variate = <span class="built_in">eval</span>(arr[<span class="number">0</span>])</div><div class="line">        	<span class="keyword">return</span> filter(variate)</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">    		<span class="keyword">return</span> <span class="built_in">eval</span>($<span class="number">1</span>)</div><div class="line">    	&#125;	</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="comment">// 属性填充</span></div><div class="line">    <span class="keyword">var</span> tpl = tpl.replace(<span class="regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, $<span class="number">1</span></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $<span class="number">1</span> = $<span class="number">1.</span>trim()</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/\|/</span>.test($<span class="number">1</span>)) &#123;</div><div class="line">            <span class="keyword">var</span> arr = $<span class="number">1.</span>split(<span class="string">'|'</span>)</div><div class="line">            <span class="keyword">var</span> filter = <span class="built_in">eval</span>(arr[<span class="number">1</span>])</div><div class="line">            <span class="keyword">return</span> print(arr[<span class="number">0</span>], filter)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> print($<span class="number">1</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> tpl</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了过滤函数，就可以处理没值的情况了，因此去掉了fruitless参数，封装了print()函数使代码更加简洁。至此，列表模板引擎已经可以处理大部分工作中遇到的情况了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/05/18/ES6常用语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1814,144 +1950,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/27/PHP单双引号区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hanger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://olislpb6q.bkt.clouddn.com/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hanger's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/27/PHP单双引号区别/" itemprop="url">
-                  PHP单双引号区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T23:09:21+08:00">
-                2017-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/27/PHP单双引号区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/27/PHP单双引号区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>单引号内字段不进行解释，直接输出。</li>
-<li>双引号内字段会经过编译器解释，然后再当作HTML代码输出。</li>
-</ul>
-<p>双引号内部变量会解析,单引号则不解析。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$abc = <span class="string">'my name is Tom'</span>;</div><div class="line"><span class="keyword">echo</span> $abc; <span class="comment">//结果是:my name is Tom</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'$abc'</span>; <span class="comment">//结果是:$abc</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$abc"</span>; <span class="comment">//结果是:my name is Tom</span></div></pre></td></tr></table></figure></p>
-<p>建议 PHP 引号使用原则：</p>
-<ol>
-<li>纯字符串最外层用单引号。</li>
-<li>包含变量时最外层用双引号。</li>
-<li>包含特殊符号(如换行符\n)时最外层用双引号。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2001,7 +1999,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
