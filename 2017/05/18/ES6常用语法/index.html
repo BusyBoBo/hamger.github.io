@@ -105,7 +105,7 @@ let用于变量的声明，可以防止变量提升，实际上为JavaScript新�
 class,extends,super 
 
 123456789101112131415161718192021class Animal &amp;#123; // c">
-<meta property="og:updated_time" content="2017-05-17T23:47:09.000Z">
+<meta property="og:updated_time" content="2017-06-08T00:35:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6常用语法">
 <meta name="twitter:description" content="let,const 
@@ -399,6 +399,7 @@ class,extends,super
 <p>class,extends,super </p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123; <span class="comment">// class定义一个“类”</span></div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> Animal()</div><div class="line">animal.says(<span class="string">'hello'</span>) <span class="comment">//animal says hello</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123; <span class="comment">// extends实现继承</span></div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>() <span class="comment">// 指代父类的this对象</span></div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'cat'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> Cat()</div><div class="line">cat.says(<span class="string">'hello'</span>) <span class="comment">//cat says hello</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>arrow function</p>
 </blockquote>
