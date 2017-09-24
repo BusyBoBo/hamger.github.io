@@ -292,6 +292,143 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/29/页面跳转方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://olislpb6q.bkt.clouddn.com/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hanger's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/29/页面跳转方式/" itemprop="url">
+                  页面跳转方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T09:07:17+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/29/页面跳转方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/29/页面跳转方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前端工作有很多地方需要页面跳转，有很多种实现方法。</p>
+<h3 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h3><p>一般形式上可以用<code>&lt;a&gt;&lt;/a&gt;</code>、<code>&lt;button&gt;&lt;/button&gt;</code>、<code>&lt;input/&gt;</code>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"链接"</span>&gt;</span>GO<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"window.location.href='链接'"</span>&gt;</span>GO<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"GO"</span> <span class="attr">onclick</span>=<span class="string">"location.href='链接'"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="JS跳转页面代码"><a href="#JS跳转页面代码" class="headerlink" title="JS跳转页面代码"></a>JS跳转页面代码</h3><h4 id="本页跳转"><a href="#本页跳转" class="headerlink" title="本页跳转"></a>本页跳转</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.location.href = <span class="string">'链接'</span>;</div><div class="line"><span class="built_in">window</span>.location = <span class="string">'链接'</span>;</div><div class="line">location.href = <span class="string">'链接'</span>;</div><div class="line">location = <span class="string">'链接'</span>;</div><div class="line">top.location = <span class="string">'链接'</span>;</div></pre></td></tr></table></figure>
+<h4 id="新页跳转"><a href="#新页跳转" class="headerlink" title="新页跳转"></a>新页跳转</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.open(<span class="string">'链接'</span>);</div><div class="line">open(<span class="string">'链接'</span>);</div></pre></td></tr></table></figure>
+<p>或者在HTML标签中添加<code>target=&quot;_blank&quot;</code>:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"链接"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>GO<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="历史跳转"><a href="#历史跳转" class="headerlink" title="历史跳转"></a>历史跳转</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"history.go(-1)"</span>&gt;</span>返回上一步<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"window.history.back()"</span>&gt;</span>返回上一步<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/29/页面跳转方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/28/Sublime-Text3快捷键和插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1639,165 +1776,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/16/String对象方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hanger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://olislpb6q.bkt.clouddn.com/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hanger's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/16/String对象方法/" itemprop="url">
-                  String对象方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T08:10:54+08:00">
-                2017-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/16/String对象方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/String对象方法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>讨论完<a href="https://hamger.github.io/2017/03/14/Array%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/">Array对象的方法</a>，再来讨论一下String对象的方法，两者拥有部分相似的方法：concat()、indexOf()、lastIndexOf()、slice()、valueOf()。这里不再赘述。</p>
-<h2 id="提取字符串"><a href="#提取字符串" class="headerlink" title="提取字符串"></a>提取字符串</h2><ul>
-<li>substr()  语法<code>string.substr(start,length)</code>。如果start是负数，那么该参数声明从字符串的尾部开始算起的位置。如果 length 为 0 或负数，将返回一个空字符串。</li>
-<li>substring()  语法<code>string.substring(start,end)</code>。使用 start 和 end 两者中的较小值作为子字符串的起始点。如果 start 或 end 为 NaN 或者负数，那么将其替换为0。</li>
-</ul>
-<p>substr()、substring()、slice() 三者都不改变原数组的值。</p>
-<h2 id="字符串转数组"><a href="#字符串转数组" class="headerlink" title="字符串转数组"></a>字符串转数组</h2><ul>
-<li>split() 把字符串分割为字符串数组。语法<code>string.split(separator,limit)</code>。返回的数组中的字串不包括 separator 自身。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>separator</td>
-<td>可选。字符串或正则表达式，从该参数指定的地方分割 string Object。</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</td>
-</tr>
-</tbody>
-</table>
-<p><code>split(&quot;&quot;)</code> 会将 stringObject 中的每个字符之间都分割。<br><code>split()</code> 会返回完整的字符串，即不做处理。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"How are you doing today?"</span>;</div><div class="line"><span class="keyword">var</span> n=str.split(<span class="string">" "</span>); <span class="comment">// 注意这里的分隔符是空格</span></div><div class="line"><span class="built_in">console</span>.log(n) <span class="comment">// ["How", "are", "you", "doing", "today?"]</span></div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/16/String对象方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1847,7 +1825,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
