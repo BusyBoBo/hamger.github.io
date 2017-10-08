@@ -9,7 +9,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(75, 75, 75, 0);
+    background: rgba(70, 70, 70, 0);
     overflow: hidden;
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
@@ -18,7 +18,7 @@
 
 .hg-picker-bg-show {
     z-index: 99 !important;
-    background: rgba(75, 75, 75, 0.65) !important;
+    background: rgba(70, 70, 70, 0.65) !important;
 }
 
 .hg-picker-container {
