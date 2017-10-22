@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="markdown," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="列表无序列表1234- 文本1   * 二级文本- 文本2- 文本3 有序列表1231. 文本12. 文本23. 文本3">
-<meta name="keywords" content="markdown">
+<meta name="description" content="Date 对象用于处理日期与实际，记录一下它的方法以及传参。 常用方法   方法 描述      getFullYear() 返回四位数字年份   getMonth() 返回月份 (0 ~ 11)   getDate() 返回一个月中的某一天 (1 ~ 31)   getHours() 返回 Date 对象的小时 (0 ~ 23)   getminutes() 返回 Date 对象的分钟 (0 ~">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用markdown语法">
-<meta property="og:url" content="https://hamger.github.io/2017/03/07/常用markdown语法/index.html">
+<meta property="og:title" content="Date 对象">
+<meta property="og:url" content="https://hamger.github.io/2017/10/22/Date对象/index.html">
 <meta property="og:site_name" content="Hanger&#39;s Blog">
-<meta property="og:description" content="列表无序列表1234- 文本1   * 二级文本- 文本2- 文本3 有序列表1231. 文本12. 文本23. 文本3">
+<meta property="og:description" content="Date 对象用于处理日期与实际，记录一下它的方法以及传参。 常用方法   方法 描述      getFullYear() 返回四位数字年份   getMonth() 返回月份 (0 ~ 11)   getDate() 返回一个月中的某一天 (1 ~ 31)   getHours() 返回 Date 对象的小时 (0 ~ 23)   getminutes() 返回 Date 对象的分钟 (0 ~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-03-07T11:26:58.000Z">
+<meta property="og:updated_time" content="2017-10-22T06:40:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用markdown语法">
-<meta name="twitter:description" content="列表无序列表1234- 文本1   * 二级文本- 文本2- 文本3 有序列表1231. 文本12. 文本23. 文本3">
+<meta name="twitter:title" content="Date 对象">
+<meta name="twitter:description" content="Date 对象用于处理日期与实际，记录一下它的方法以及传参。 常用方法   方法 描述      getFullYear() 返回四位数字年份   getMonth() 返回月份 (0 ~ 11)   getDate() 返回一个月中的某一天 (1 ~ 31)   getHours() 返回 Date 对象的小时 (0 ~ 23)   getminutes() 返回 Date 对象的分钟 (0 ~">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://hamger.github.io/2017/03/07/常用markdown语法/"/>
+  <link rel="canonical" href="https://hamger.github.io/2017/10/22/Date对象/"/>
 
 
 
 
 
-  <title> 常用markdown语法 | Hanger's Blog </title>
+  <title> Date 对象 | Hanger's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/03/07/常用markdown语法/">
+    <link itemprop="mainEntityOfPage" href="https://hamger.github.io/2017/10/22/Date对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hanger">
@@ -314,7 +314,7 @@
             
             
               
-                常用markdown语法
+                Date 对象
               
             
           </h1>
@@ -329,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T16:03:14+08:00">
-                2017-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T13:58:01+08:00">
+                2017-10-22
               </time>
             
 
@@ -348,8 +348,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/07/常用markdown语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/07/常用markdown语法/" itemprop="commentCount"></span>
+                <a href="/2017/10/22/Date对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/22/Date对象/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,18 +375,56 @@
       
 
       
-        <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- 文本1</div><div class="line">   * 二级文本</div><div class="line">- 文本2</div><div class="line">- 文本3</div></pre></td></tr></table></figure>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 文本1</div><div class="line">2. 文本2</div><div class="line">3. 文本3</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># h1</div><div class="line">## h2</div><div class="line">### h3</div><div class="line">...</div></pre></td></tr></table></figure>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="文字链接"><a href="#文字链接" class="headerlink" title="文字链接"></a>文字链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[显示文本](链接地址)</div></pre></td></tr></table></figure>
-<h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;http://exmaple.com&gt;</div></pre></td></tr></table></figure>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">![alt text](图片链接 &quot;title&quot;)</div><div class="line"></div><div class="line">![alt text][id]  </div><div class="line">[id]: 图片链接 &quot;title&quot;</div></pre></td></tr></table></figure>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; 引用文字</div><div class="line">&gt;</div><div class="line">&gt;&gt; 二级引用文字</div><div class="line">&gt;</div><div class="line">&gt; 引用文字</div></pre></td></tr></table></figure>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~删除线~~ // 不需要空格</div></pre></td></tr></table></figure>
-<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">这是一个注脚[^footnote1]的样例</div><div class="line">[^footnote1]: 我就是那个注脚</div></pre></td></tr></table></figure>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 不需要对齐</div><div class="line">dog | bird | cat</div><div class="line">----|------|-----</div><div class="line">foo | foo  | foo</div><div class="line">bar | bar  | bar</div><div class="line">baz | baz  | baz</div></pre></td></tr></table></figure>
-
+        <p>Date 对象用于处理日期与实际，记录一下它的方法以及传参。</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getFullYear()</td>
+<td>返回四位数字年份</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>返回月份 (0 ~ 11)</td>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>返回一个月中的某一天 <strong>(1 ~ 31)</strong></td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>返回 Date 对象的小时 (0 ~ 23)</td>
+</tr>
+<tr>
+<td>getminutes()</td>
+<td>返回 Date 对象的分钟 (0 ~ 59)</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>返回 Date 对象的小时 (0 ~ 23)</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td>返回一周中的某一天 (0 ~ 6)</td>
+</tr>
+<tr>
+<td>getTime()</td>
+<td>返回 1970 年 1 月 1 日至今的毫秒数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-Date-参数"><a href="#new-Date-参数" class="headerlink" title="new Date() 参数"></a>new Date() 参数</h3><ul>
+<li><code>new Date(&quot;month dd,yyyy hh:mm:ss&quot;)</code> 这里的<code>month</code>是一个英文月份单词如<code>January</code></li>
+<li><code>new Date(&quot;yyyy/MM/dd hh:mm:ss&quot;)</code> 用<code>/</code>分隔日期比用<code>-</code>等分隔兼容性更好</li>
+<li><code>new Date(yyyy, MM, dd, hh, mm, ss)</code> 参数不能放 Array 类型，且每项必须是 String 或 Number 类型</li>
+<li><code>new Date(milliseconds)</code> 参数必须是 Number 类型</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"January 12,2006 22:19:35"</span>); <span class="comment">// 注意格式 </span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"January 12,2006"</span>); <span class="comment">// String 类型</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2006/2/2 22:19:35"</span>); <span class="comment">// String 类型 </span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2006</span>,<span class="number">0</span>,<span class="number">12</span>,<span class="number">22</span>,<span class="number">19</span>,<span class="number">35</span>); <span class="comment">// 不能放 Array 类型 </span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2006</span>,<span class="number">0</span>,<span class="number">12</span>); <span class="comment">// 可以是String 或 Number</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1137075575000</span>); <span class="comment">// 必须是 Number 类型</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -430,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -443,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/07/JS闭包/" rel="next" title="JS闭包">
-                <i class="fa fa-chevron-left"></i> JS闭包
+              <a href="/2017/09/24/实现双向绑定/" rel="next" title="实现双向绑定">
+                <i class="fa fa-chevron-left"></i> 实现双向绑定
               </a>
             
           </div>
@@ -453,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/09/div居中/" rel="prev" title="div居中">
-                div居中 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/22/Math对象/" rel="prev" title="Math对象">
+                Math对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -481,8 +519,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/07/常用markdown语法/"
-           data-title="常用markdown语法" data-url="https://hamger.github.io/2017/03/07/常用markdown语法/">
+      <div class="ds-thread" data-thread-key="2017/10/22/Date对象/"
+           data-title="Date 对象" data-url="https://hamger.github.io/2017/10/22/Date对象/">
       </div>
     
   </div>
@@ -597,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无序列表"><span class="nav-number">1.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序列表"><span class="nav-number">1.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">3.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文字链接"><span class="nav-number">3.1.</span> <span class="nav-text">文字链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动链接"><span class="nav-number">3.2.</span> <span class="nav-text">自动链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片"><span class="nav-number">4.</span> <span class="nav-text">插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除线"><span class="nav-number">6.</span> <span class="nav-text">删除线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注脚"><span class="nav-number">7.</span> <span class="nav-text">注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">8.</span> <span class="nav-text">表格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-Date-参数"><span class="nav-number">2.</span> <span class="nav-text">new Date() 参数</span></a></li></ol></div>
             
 
           </div>

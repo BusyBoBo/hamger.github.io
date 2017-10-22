@@ -87,29 +87,19 @@
 
 
 
-<meta name="description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：
-
-model -&amp;gt; view 初始化
-view -&amp;gt; model 绑定
-model -&amp;gt; view 绑">
+<meta name="description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：  model -&amp;gt; view 初始化 view -&amp;gt; model 绑定 model -&amp;gt; view 绑">
+<meta name="keywords" content="Vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现双向绑定">
 <meta property="og:url" content="https://hamger.github.io/2017/09/24/实现双向绑定/index.html">
-<meta property="og:site_name" content="Hanger's Blog">
-<meta property="og:description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：
-
-model -&amp;gt; view 初始化
-view -&amp;gt; model 绑定
-model -&amp;gt; view 绑">
+<meta property="og:site_name" content="Hanger&#39;s Blog">
+<meta property="og:description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：  model -&amp;gt; view 初始化 view -&amp;gt; model 绑定 model -&amp;gt; view 绑">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://olislpb6q.bkt.clouddn.com/mvvm.png">
 <meta property="og:updated_time" content="2017-09-24T14:27:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现双向绑定">
-<meta name="twitter:description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：
-
-model -&amp;gt; view 初始化
-view -&amp;gt; model 绑定
-model -&amp;gt; view 绑">
+<meta name="twitter:description" content="Vue 的一个最明显的特性就是其不太引人注意的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。这是如何做到的呢？下面我将实现一个双向绑定的简单案例，在实现案例后我相信你对 Vue 响应式系统的原理一定会有所了解。我将分三步来实现：  model -&amp;gt; view 初始化 view -&amp;gt; model 绑定 model -&amp;gt; view 绑">
 <meta name="twitter:image" content="http://olislpb6q.bkt.clouddn.com/mvvm.png">
 
 
@@ -473,6 +463,10 @@ model -&amp;gt; view 绑">
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/10/22/Date对象/" rel="prev" title="Date 对象">
+                Date 对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -547,7 +541,7 @@ model -&amp;gt; view 绑">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
