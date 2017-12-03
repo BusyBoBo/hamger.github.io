@@ -631,7 +631,7 @@
                     if (this.moveSpeed.length === 0) { // 点击跳入下一项
                         this.curDis[i] = this.curPos[i] + this.liHeight;
                     } else {
-                        this.curDis[i] = this.curDis[i] - this.calculateBuffer(speed, 0.008);
+                        this.curDis[i] = this.curDis[i] - this.calculateBuffer(speed, 0.002);
                     }
                     this.fixate(i);
                     switch (i) {
@@ -655,7 +655,7 @@
          */
         calculateBuffer: function (v, a) {
             if (Math.abs(v) > 1.24) {
-                let result = (v / Math.abs(v)) * (0.5 * v * v / a).toFixed(2);
+                let result = (v / Math.abs(v)) * (0.5 * v * v / a).toFixed(3);
                 return result;
             } else {
                 return 0;
