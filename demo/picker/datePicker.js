@@ -619,8 +619,8 @@
                         this.curDis[i] = (this.liNum[i] - 1 + 1.5) * this.liHeight
                     }
                     this.roll(i);
-                    // 每运动 150 毫秒，记录一次速度
-                    if (this.moveTime - this.startTime >= 150 * this.moveNumber) {
+                    // 每运动 100 毫秒，记录一次速度
+                    if (this.moveTime - this.startTime >= 100 * this.moveNumber) {
                         this.moveNumber++;
                         this.moveSpeed.push(offset / (this.moveTime - this.startTime)).toFixed(2);
                     }
@@ -631,7 +631,7 @@
                     if (this.moveSpeed.length === 0) { // 点击跳入下一项
                         this.curDis[i] = this.curPos[i] + this.liHeight;
                     } else {
-                        this.curDis[i] = this.curDis[i] - this.calculateBuffer(speed, 0.002);
+                        this.curDis[i] = this.curDis[i] - this.calculateBuffer(speed, 0.0002);
                     }
                     this.fixate(i);
                     switch (i) {
