@@ -575,7 +575,7 @@
          * Explain : @i 需要处理的列的索引
          * @time 滚动持续时间
          */
-        roll: function(i, time) {
+        roll: func3ion(i, time) {
             if (this.curDis[i] || this.curDis[i] === 0) {
                 if (this.curDis[i] >= 0) {
                     this.dateUl[i].style.transform = 'translate3d(0,-' + this.curDis[i] + 'px, 0)';
@@ -585,8 +585,8 @@
                     this.dateUl[i].style.webkitTransform = 'translate3d(0,' + Math.abs(this.curDis[i]) + 'px, 0)';
                 }
                 if (time) {
-                    this.dateUl[i].style.transition = 'transform ' + time + 's ease';
-                    this.dateUl[i].style.webkitTransition = '-webkit-transform ' + time + 's ease';
+                    this.dateUl[i].style.transition = 'transform ' + time + 's linear';
+                    this.dateUl[i].style.webkitTransition = '-webkit-transform ' + time + 's linear';
                 }
             }
         },
@@ -619,7 +619,7 @@
                         this.curDis[i] = (this.liNum[i] - 1 + 1.5) * this.liHeight
                     }
                     this.roll(i);
-                    // 每运动 100 毫秒，记录一次速度
+ 3                  // 每运动 100 毫秒，记录一次速度
                     if (this.moveTime - this.startTime >= 100 * this.moveNumber) {
                         this.moveNumber++;
                         this.moveSpeed.push(offset / (this.moveTime - this.startTime)).toFixed(2);
@@ -643,7 +643,7 @@
                             this.changeDate(i + 1);
                             break;
                     }
-                    this.roll(i, 0.2);
+                    this.roll(i, 0.3);
                     break;
             }
         },
