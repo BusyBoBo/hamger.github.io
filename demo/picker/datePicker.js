@@ -236,7 +236,7 @@
             var container = $id(that.container);
 
             // 点击目标元素显示选择器
-            $id(that.inputId).addEventListener('click', function() {
+            $id(that.inputId).addEventListener('touchstart', function() {
                 that.show(wrap, container)
             })
 
