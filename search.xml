@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[vue-cli使用方法]]></title>
+      <url>%2F2018%2F01%2F07%2Fvue-cli%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[安装 vue-cli使用npm install vue-cli -g来安装或者更新vue -cli。 初始化项目vue init 模板名称 项目名称这里的模板名称官方提供5种：webpack、webpack-simple、browserify、browserify-simple、simple。项目名称自己取，不需要加引号，不能大写。创建好项目后npm install下载依赖，然后npm run dev启动项目。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[vue里native的用法]]></title>
       <url>%2F2017%2F12%2F24%2Fvue%E9%87%8Cnative%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
       <content type="text"><![CDATA[用vue写的项目中遇到给router-link标签添加事件@click、@mouseover等无效的情况解决方法是使用native 原代码：123&lt;router-link v-for=&quot;(item, index) in pageMenuList&quot; :to=&quot;&#123; path: item.listLink &#125;&quot; @mouseover=&quot;overTag(index)&quot; @mouseout=&quot;outTag(index)&quot;&gt;&#123;&#123;item.listTitle&#125;&#125; &lt;i class=&quot;contain_tab_close&quot; v-show=&quot;selected==index&quot;&gt;&lt;/i&gt;&lt;/router-link&gt; 根据Vue2.0官方文档关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件。但父组件想在子组件上监听自己的click的话，需要加上native修饰符。 如果在想要在router-link上添加事件的话需要@click.native这样写。 所以如果要事件有效的话，应改成如下：123&lt;router-link v-for=&quot;(item, index) in pageMenuList&quot; :to=&quot;&#123; path: item.listLink &#125;&quot; @mouseover.native=&quot;overTag(index)&quot; @mouseout.native=&quot;outTag(index)&quot;&gt;&#123;&#123;item.listTitle&#125;&#125; &lt;i class=&quot;contain_tab_close&quot; v-show=&quot;selected==index&quot;&gt;&lt;/i&gt;&lt;/router-link&gt;]]></content>
@@ -33,7 +40,7 @@
     <entry>
       <title><![CDATA[DEMO]]></title>
       <url>%2F2017%2F08%2F16%2FDEMO%2F</url>
-      <content type="text"><![CDATA[日期和地区选择器自己制作的移动端日期和地区选择器，请使用手机或者浏览器移动端模拟器查看dome，使用方法和源码见Github。]]></content>
+      <content type="text"><![CDATA[自己制作的移动端日期选择器和地区选择器，请使用手机或者浏览器移动端模拟器查看 demo 。 日期选择器 demo ，使用说明和源码见Github。 地区选择器 demo ，使用说明和源码见Github。]]></content>
     </entry>
 
     
