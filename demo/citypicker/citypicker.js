@@ -45,7 +45,6 @@
         this.sureText = config.sureText || '确定' // 确定按钮文本，选填
         this.cancelText = config.cancelText || '取消' // 取消按钮文本，选填
         this.a = config.a // 惯性滚动加速度（正数, 单位 px/(ms * ms)），选填，默认 0.001
-        this.f = config.f // 惯性滚动阈值（正数, 单位 px/ms），选填，默认 0.85
         this.style = config.style // 选择器样式, 选填
         this.initTab() // 初始化标签
         this.initUI() // 初始化UI
@@ -70,7 +69,7 @@
             this.ulCount = 0 // 当前展示的列数
             this.renderCount = 0 // 将要渲染的列数
             this.liHeight = this.style && this.style.liHeight ? this.style.liHeight : 40 // 每个li的高度
-            this.btnHeight = this.style && this.style.btnHeight ? this.style.btnHeight : 40 // 按钮的高度
+            this.btnHeight = this.style && this.style.btnHeight ? this.style.btnHeight : 44 // 按钮的高度
             this.spaceUl = [] // 每个ul元素
             this.curDis = [] // 每个ul当前偏离的距离
             this.curPos = [] // 记录 touchstart 时每个ul的竖向距离
@@ -237,10 +236,10 @@
                 var content = $id(this.content)
                 var box = $id(this.box)
                 var sureBtn = $id(this.sure)
-                var abolishBtn = $id(this.abolish)
+                var cancelBtn = $id(this.abolish)
                 var len = content.children.length
-                // 设置高宽
-                if (obj.liHeight) {
+                // 设置高度
+                if (obj.liHeight !== 40) {
                     for (var i = 0; i < this.ulCount; i++) {
                         setChildStyle(content.children[i], 'height', this.liHeight + 'px')
                     };
@@ -251,36 +250,19 @@
                     content.style.height = this.liHeight * 5 + 'px'
                     content.style.lineHeight = this.liHeight + 'px'
                 }
-                if (obj.btnHeight) {
+                if (obj.btnHeight !== 44) {
                     box.style.height = this.btnHeight + 'px'
                     box.style.lineHeight = this.btnHeight + 'px'
                 }
                 if (obj.btnOffset) {
                     sureBtn.style.marginRight = obj.btnOffset
-                    abolishBtn.style.marginLeft = obj.btnOffset
+                    cancelBtn.style.marginLeft = obj.btnOffset
                 }
-                if (obj.liHeight || obj.btnHeight) container.style.height = this.liHeight * 5 + this.btnHeight + 'px'
-                if (obj.width) container.style.width = obj.width
-                // 设置圆角
-                if (obj.radius) container.style.borderRadius = obj.radius
-                // 设置定位
-                if (obj.right) container.style.right = obj.right
-                if (obj.left) container.style.left = obj.left
-                if (!obj.location) {
-                    if (obj.bottom) container.style.bottom = obj.bottom
-                    if (obj.top) container.style.top = obj.top
-                } else {
-                    if (obj.location === 'bottom') container.style.bottom = 0
-                    if (obj.location === 'top') container.style.top = 0
-                    if (obj.location === 'center') {
-                        // 为了兼容低版本，采用计算 top 值来实现垂直居中
-                        container.style.top = 0.5 * (window.screen.availHeight - this.liHeight * 5 - this.btnHeight) + 'px'
-                    }
-                }
+                if (obj.liHeight !== 40 || obj.btnHeight !== 44) container.style.height = this.liHeight * 5 + this.btnHeight + 'px'
                 // 设置配色
                 if(obj.titleColor) box.style.color = obj.titleColor
-                if(obj.sureBtnColor) sureBtn.style.color = obj.sureBtnColor
-                if(obj.abolishBtnColor) abolishBtn.style.color = obj.abolishBtnColor
+                if(obj.sureColor) sureBtn.style.color = obj.sureColor
+                if(obj.cancelColor) cancelBtn.style.color = obj.cancelColor
                 if(obj.btnBgColor) box.style.backgroundColor = obj.btnBgColor
                 if(obj.contentColor) content.style.color = obj.contentColor
                 if(obj.contentBgColor) content.style.backgroundColor = obj.contentBgColor
@@ -345,16 +327,13 @@
          * @time 滚动持续时间
          */
         roll: function(i, time) {
-            if (this.curDis[i] >= 0) {
-                this.spaceUl[i].style.transform = 'translate3d(0,-' + this.curDis[i] + 'px, 0)'
-                this.spaceUl[i].style.webkitTransform = 'translate3d(0,-' + this.curDis[i] + 'px, 0)'
-            } else {
-                this.spaceUl[i].style.transform = 'translate3d(0,' + Math.abs(this.curDis[i]) + 'px, 0)'
-                this.spaceUl[i].style.webkitTransform = 'translate3d(0,' + Math.abs(this.curDis[i]) + 'px, 0)'
-            }
-            if (time) {
-                this.spaceUl[i].style.transition = 'transform ' + time + 's linear'
-                this.spaceUl[i].style.webkitTransition = '-webkit-transform ' + time + 's linear'
+            if (this.curDis[i] || this.curDis[i] === 0) {
+                this.spaceUl[i].style.transform = 'translate3d(0, ' + this.curDis[i] + 'px, 0)'
+                this.spaceUl[i].style.webkitTransform = 'translate3d(0, ' + this.curDis[i] + 'px, 0)'
+                if (time) {
+                    this.spaceUl[i].style.transition = 'transform ' + time + 's ease-out'
+                    this.spaceUl[i].style.webkitTransition = '-webkit-transform ' + time + 's ease-out'
+                }
             }
         },
         /**
@@ -382,9 +361,9 @@
                     event.preventDefault()
                     this.moveY = event.touches[0].clientY
                     var offset  = this.startY - this.moveY // 向上为正数，向下为负数
-                    this.curDis[i] = offset + this.curPos[i]
-                    if (this.curDis[i] <= -1.5 * this.liHeight) this.curDis[i] = -1.5 * this.liHeight
-                    if (this.curDis[i] >= (this.liNum[i] - 1 + 1.5) * this.liHeight) this.curDis[i] = (this.liNum[i] - 1 + 1.5) * this.liHeight
+                    this.curDis[i] = this.curPos[i] - offset
+                    if (this.curDis[i] >= 1.5 * this.liHeight) this.curDis[i] = 1.5 * this.liHeight
+                    if (this.curDis[i] <= -1 * (this.liNum[i] - 1 + 1.5) * this.liHeight) this.curDis[i] = -1 * (this.liNum[i] - 1 + 1.5) * this.liHeight
                     this.roll(i)
                     // 每运动 130 毫秒，记录一次速度
                     if (this.moveTime - this.startTime >= 130 * this.moveNumber) {
@@ -395,8 +374,12 @@
                 case "touchend":
                     if (!this.abled) return
                     this.endTime = Date.now()
-                    var speed = this.moveSpeed[this.moveSpeed.length - 1] || 0
-                    this.curDis[i] = this.curDis[i] + this.calculateBuffer(speed, this.a, this.f)
+                    if (this.moveNumber === 1) {
+                        var speed =  (this.startY - event.changedTouches[0].clientY) / (this.endTime - this.startTime)
+                    } else {
+                        var speed = this.moveSpeed[this.moveSpeed.length - 1]
+                    }
+                    this.curDis[i] = this.curDis[i] - this.calculateBuffer(speed, this.a)
                     this.fixate(i)
                     break
             }
@@ -406,11 +389,10 @@
          * Return : Number
          * Explain : @v 速度（正负表示运动方向, 单位 px/ms）
          * @a 加速度（正数, 单位 px/(ms * ms)）
-         * @f 阈值 滑动速度为多少时开始启用缓冲动画（正数, 单位 px/ms）
          */
-        calculateBuffer: function (v, a, f) {
-            var a = a || 0.001, f = f || 0.85
-            if (Math.abs(v) > f) return (v / Math.abs(v)) * (0.5 * v * v / a)
+        calculateBuffer: function (v, a) {
+            var a2 = a || 0.001;
+            if (Math.abs(v) > 0.25) return (v / Math.abs(v)) * (0.5 * v * v / a2)
             else return 0
         },
         /**
@@ -430,20 +412,10 @@
          * Explain : @i 需要处理的列的索引
          */
         getPosition: function(i) {
-            var index = 0
-            var liRow = Math.round((this.curDis[i] / this.liHeight).toFixed(2))
-            if (liRow > this.liNum[i] - 1) { // 越下界置底
-                this.curDis[i] = this.liHeight * (this.liNum[i] - 1)
-                index = this.liNum[i] - 1
-            } else if (liRow < 0) { // 越上界置顶
-                this.curDis[i] = 0
-                index = 0
-            } else { // 中间归整
-                this.curDis[i] = this.liHeight * liRow
-                index = liRow
-            }
-            this.spaceIndex[i] = index
-            this.curDis[i] = this.spaceIndex[i] * this.liHeight
+            if (this.curDis[i] <= -1 * (this.liNum[i] - 1) * this.liHeight ) this.spaceIndex[i] = this.liNum[i] - 1
+            else if (this.curDis[i] >= 0) this.spaceIndex[i] = 0
+            else this.spaceIndex[i] = -1 * Math.round(this.curDis[i] / this.liHeight)
+            this.curDis[i] = -1 * this.liHeight * this.spaceIndex[i]
         },
         /**
          * 更新内容区视图
@@ -491,7 +463,7 @@
          */
         show: function(wrap, container) {
             wrap.classList.add('hg-picker-bg-show')
-            container.style.display = 'block'
+            container.classList.add('hg-picker-container-up')
         },
         /**
          * 隐藏选择器
@@ -500,7 +472,7 @@
          */
         hide: function(wrap, container) {
             wrap.classList.remove('hg-picker-bg-show')
-            container.style.display = 'none'
+            container.classList.remove('hg-picker-container-up')
         }
     }
 
